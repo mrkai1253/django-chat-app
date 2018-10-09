@@ -21,6 +21,8 @@ def home(request):
                                     message=form.cleaned_data['message'])
             msgmodel.save()
 
+            form = MessageForm()
+
         else:
             print("Error")
 

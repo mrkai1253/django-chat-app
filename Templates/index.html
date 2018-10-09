@@ -30,14 +30,16 @@
 
 <form method="post">
     {% csrf_token %}
-    <div style="text-align:center; margin-top:30px">
-        <span class="to">To</span>
-        <div class="select">
-            <select style="text-align:center" name="dropdown">
-                {% for user in users %}
-                <option value={{user.username}}>{{user.username}}</option>
-                {% endfor %}
-            </select>
+    <div style="padding:10px">
+        <div style="text-align:center; margin-top:30px">
+            <span class="to">To</span>
+            <div class="select">
+                <select style="text-align:center" name="dropdown">
+                    {% for user in users %}
+                    <option value={{user.username}}>{{user.username}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
     </div>
     <div style="text-align:center;margin: 10px auto">
