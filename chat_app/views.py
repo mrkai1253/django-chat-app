@@ -24,6 +24,6 @@ def home(request):
         else:
             print("Error")
 
-        messages = MessageModel.objects.all().filter(sender_name=request.user)
+        messages = reversed(MessageModel.objects.all().filter(sender_name=request.user).order_by('-id')[:4])
 
     return render(request, 'index.html', {'messageform': form, 'users': users, 'messages': messages})

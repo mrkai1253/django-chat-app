@@ -1,44 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+
+<html lang="en" style="margin:0">
 <head>
     <meta charset="UTF-8">
-    <title>Hi {{request.user}}</title>
+    <title>Hey {{request.user}} :D</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+
 </head>
 <body>
-
-<h1 style="text-align:center">Hi {{request.user}}</h1>
-
-
-<form method="post">
-    {% csrf_token %}
-    <div style="text-align:center">
-        <span>To</span>
-        <select style="text-align:center" name="dropdown">
-            {% for user in users %}
-            <option value={{user.username}}>{{user.username}}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div style="text-align:center;margin: 10px 0">
-        {{messageform.message}}
-    </div>
-    <button type="submit" style="display:block;margin:10px auto">Send Message</button>
-</form>
+<div style="background:#39464e;width:100%">
+    <h1 class="user">Hey {{request.user}}</h1>
+    <div class="users-div"><a href="#" class="users-anchor">Users</a></div>
+</div>
 
 
-<div>
+<div class="msg-msg-container">
     {% for msg in messages %}
-    <div style="border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0">
+    <div class="msg-container">
         <span>{{msg.sender_name}} --->  {{msg.receiver}}</span>
         <p>{{msg.message}}</p>
 
     </div>
     {% endfor %}
 </div>
+
+<form method="post">
+    {% csrf_token %}
+    <div style="text-align:center; margin-top:30px">
+        <span class="to">To</span>
+        <div class="select">
+            <select style="text-align:center" name="dropdown">
+                {% for user in users %}
+                <option value={{user.username}}>{{user.username}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div style="text-align:center;margin: 10px auto">
+        {{messageform.message}}
+    </div>
+    <div class="container">
+        <button type="submit" class="btn bg">Send Message</button>
+    </div>
+</form>
 
 
 </body>
