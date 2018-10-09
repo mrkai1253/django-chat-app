@@ -1,14 +1,10 @@
 from django.shortcuts import render
 from .forms import MessageForm
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .models import MessageModel
 
 
-# Create your views here.
-
-# @login_required
 def home(request):
     sender = authenticate(username='Shaji', password='shajithomas1253')
     if sender is not None:
@@ -28,6 +24,6 @@ def home(request):
         else:
             print("Error")
 
-        messages = MessageModel.objects.all().filter(sender_name = request.user)
+        messages = MessageModel.objects.all().filter(sender_name=request.user)
 
-    return render(request, 'index.html', {'messageform': form, 'users': users, 'messages' : messages})
+    return render(request, 'index.html', {'messageform': form, 'users': users, 'messages': messages})
