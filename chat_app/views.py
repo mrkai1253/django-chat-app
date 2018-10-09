@@ -28,4 +28,6 @@ def home(request):
         else:
             print("Error")
 
-    return render(request, 'index.html', {'messageform': form, 'users': users})
+        messages = MessageModel.objects.all().filter(sender_name = request.user)
+
+    return render(request, 'index.html', {'messageform': form, 'users': users, 'messages' : messages})

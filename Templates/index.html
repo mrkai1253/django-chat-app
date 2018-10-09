@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Hi {{request.user}}</title>
 </head>
 <body>
 
@@ -24,6 +24,22 @@
     </div>
     <button type="submit" style="display:block;margin:10px auto">Send Message</button>
 </form>
+
+
+<div>
+    {% for msg in messages %}
+    <div style="border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0">
+        <span>{{msg.sender_name}} --->  {{msg.receiver}}</span>
+        <p>{{msg.message}}</p>
+
+    </div>
+    {% endfor %}
+</div>
+
 
 </body>
 </html>
