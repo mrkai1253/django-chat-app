@@ -6,7 +6,24 @@
 </head>
 <body>
 
-    <h1>HOME PAGE</h1>
+<h1 style="text-align:center">Hi {{request.user}}</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+    <div style="text-align:center">
+        <span>To</span>
+        <select style="text-align:center" name="dropdown">
+            {% for user in users %}
+            <option value={{user.username}}>{{user.username}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div style="text-align:center;margin: 10px 0">
+        {{messageform.message}}
+    </div>
+    <button type="submit" style="display:block;margin:10px auto">Send Message</button>
+</form>
 
 </body>
 </html>
