@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import MessageForm
 from django.contrib.auth import authenticate, login
@@ -29,3 +30,14 @@ def home(request):
         messages = reversed(MessageModel.objects.all().filter(sender_name=request.user).order_by('-id')[:4])
 
     return render(request, 'index.html', {'messageform': form, 'users': users, 'messages': messages})
+
+
+def list_users(request):
+    users = User.objects.all().filter(is_staff=False)
+    return render(request, 'users.html', {'users': users})
+
+
+def message_user(request,username):
+    print(username)
+    return HttpResponse('{} Selected'.format(username))
+    pass

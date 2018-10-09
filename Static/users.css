@@ -1,0 +1,23 @@
+.user-users{
+font-family: 'Shadows Into Light', cursive;
+text-align:center;color:white;padding:20;
+
+}
+
+.user-cont{
+padding:20px;
+margin-top:30px;
+}
+
+.user-list{
+text-align:center;
+list-style:none;
+}
+
+.user-list li{
+
+padding:20px;
+}
+
+
+
