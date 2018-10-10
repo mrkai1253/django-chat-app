@@ -4,7 +4,7 @@
 <html lang="en" style="margin:0">
 <head>
     <meta charset="UTF-8">
-    <title>Hey {{request.user}} :D</title>
+    <title>Hey {{request.user}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,14 +13,16 @@
 </head>
 <body>
 <div style="background:#39464e;width:100%">
-    <h1 class="user-users">Hey {{request.user}}</h1>
+    <h1 class="user-users"><a href={% url 'home' %} class="users-anchor" style="color: white">Hey {{request.user}}</a>
+    </h1>
 </div>
 
 
 <div class="user-cont">
     <ul class="user-list">
         {% for user in users %}
-        <li><a href={%url 'message-user' user.username %} class="users-anchor" style="color: black">{{user.username}}</a></li>
+        <li><a href={%url 'message-user' user.username %} class="users-anchor" style="color:
+            black">{{user.username}}</a></li>
         {% endfor %}
 
 
