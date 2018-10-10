@@ -2,6 +2,7 @@
 {% load static %}
 
 <html lang="en" style="margin:0">
+
 <head>
     <meta charset="UTF-8">
     <title>Hey {{request.user}}</title>
@@ -11,24 +12,26 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'users.css' %}">
 </head>
+
 <body>
-<div style="background:#39464e;width:100%">
-    <h1 class="user-users"><a href={% url 'home' %} class="users-anchor" style="color: white">Hey {{request.user}}</a>
-    </h1>
-</div>
+    <div style="background:#39464e;width:100%">
+        <h1 class="user-users"><a href={% url 'home' %} class="users-anchor" style="color: white">Hey {{request.user}}</a>
+        </h1>
+    </div>
 
 
-<div class="user-cont">
-    <ul class="user-list">
-        {% for user in users %}
-        <li><a href={%url 'message-user' user.username %} class="users-anchor" style="color:
+    <div class="user-cont">
+        <ul class="user-list">
+            {% for user in users %}
+            <li><a href={%url 'message-user' user.username %} class="users-anchor" style="color:
             black">{{user.username}}</a></li>
-        {% endfor %}
+            {% endfor %}
 
 
-    </ul>
-</div>
+        </ul>
+    </div>
 
 
 </body>
+
 </html>
